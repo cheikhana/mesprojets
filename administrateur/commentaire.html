@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestion des Commentaires et Évaluations</title>
+    <link rel="stylesheet" href="./Gestion_utilisateur.css"> <!-- Assurez-vous d'ajouter votre propre fichier CSS -->
+    <link rel="stylesheet" href="../Médecin/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <style>
+        /* Style pour le tableau */
+#review-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Style pour les en-têtes de colonnes */
+#review-table th {
+    background-color: #0d0b0b;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Style pour les lignes impaires */
+#review-list tr:nth-child(odd) {
+    background-color: #cd1c1c;
+}
+
+/* Style pour les lignes paires */
+#review-list tr:nth-child(even) {
+    background-color: #a8bc25;
+}
+
+/* Style pour les cellules du tableau */
+#review-list td {
+    padding: 10px;
+    border: 1px solid #5d1212;
+}
+
+    </style>
+</head>
+<body>
+    <section  class="en-tete">
+        <nav class="barre-navigation">
+            <div class="nav-links " id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul><li><a href="../Accueil/Accueil.html">Accueil</a></li>
+                    <li><a href="./utilisateur.html">Tableau de Bord</a></li>
+                   <li><a href="./Gestion_utilisateur.html">Gestion des Utilisateurs</a></li>
+                   <li><a href="./commentaire.html">Gestion des Commentaires et Avis</a></li>
+                   <li><a href="./Gestion_contenu.html">Gestion des contenu</a></li>
+               </ul> 
+            </div>
+            <div class="text-box">
+                <h1>Gestion des Commentaires et Évaluations</h1>
+                 <table id="review-table">
+                                 <thead>
+                        <tr>
+                            <th>Utilisateur</th>
+                            <th>Évaluation</th>
+                <th>Commentaire</th>
+            </tr>
+                    </thead>
+                    <tbody id="review-list">
+            <!-- Les avis et évaluations seront affichés ici -->
+                    </tbody>
+                </table>
+            
+                </div>
+        </section>
+   
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const reviewTable = document.getElementById('review-table');
+    const reviewList = document.getElementById('review-list');
+
+    // Récupérer les avis et évaluations du stockage local
+    const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+    // Parcourir la liste des avis et évaluations et les afficher dans le tableau
+    reviews.forEach(function(review) {
+        const row = document.createElement('tr');
+        const userCell = document.createElement('td');
+        userCell.textContent = review.userName;
+        const ratingCell = document.createElement('td');
+        ratingCell.textContent = review.userRating;
+        const commentCell = document.createElement('td');
+        commentCell.textContent = review.userReview;
+
+        row.appendChild(userCell);
+        row.appendChild(ratingCell);
+        row.appendChild(commentCell);
+        reviewList.appendChild(row);
+    });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Contenus</title>
+    <link rel="stylesheet" href="./Gestion_contenu.css">
+     <!-- Assurez-vous d'ajouter votre propre fichier CSS -->
+    <link rel="stylesheet" href="../Médecin/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <section  class="en-tete">
+        <nav class="barre-navigation">
+            <div class="nav-links " id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul id="lis"><li><a href="../Accueil/Accueil.html">Accueil</a></li>
+                    <li><a href="./utilisateur.html">Tableau de Bord</a></li>
+                   <li><a href="./Gestion_utilisateur.html">Gestion des Utilisateurs</a></li>
+                   <li><a href="./commentaire.html">Gestion des Commentaires et Avis</a></li>
+                   <li><a href="./Gestion_contenu.html">Gestion des contenu</a></li>
+               </ul> 
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+            <div class="text-box">
+                <div class="container">
+                    <h1>Gestion des Contenus</h1>
+                    
+                    <!-- Onglets pour la gestion de contenu -->
+                    <div class="tabs">
+                        <button onclick="showContent('statistiques')">Statistiques</button>
+                        <button onclick="showContent('aide')">Pages d'Aide</button>
+                        <button onclick="showContent('faq')">FAQ</button>
+                    </div>
+                    
+                    <!-- Section pour afficher le contenu -->
+                    <div class="content" id="statistiques">
+                        <h2>Statistiques de l'Application</h2>
+                        Nombre d'Utilisateurs Inscrits : <span id="nombreUtilisateurs">0</span>
+                        <p>Nombre de réservations : <span id="reservations">0</span></p>
+                        <p>Nombre de prestataires : <span id="prestataires">0</span></p>
+                    </div>
+                    
+                    <div class="content" id="aide">
+                        <h2>Pages d'Aide</h2>
+                        <!-- Ajoutez ici la gestion des pages d'aide -->
+                        <p><h2>Instructions pour la réservation d'un rendez-vous médical :</h2> Cette section doit expliquer comment les utilisateurs peuvent effectuer 
+                            une réservation de rendez-vous chez un médecin en ligne. Les points clés incluent la recherche d'un médecin, la sélection de la spécialité,
+                             la réservation d'un rendez-vous à une date et une heure spécifiques, ainsi que la saisie d'informations essentielles, 
+                             telles que la raison de la visite médicale.</p>
+            
+                        <p><h2>Recherche de services supplémentaires :</h2> Dans cette partie, informez les utilisateurs sur
+                             la possibilité de rechercher des services complémentaires,
+                              tels qu'une pharmacie, un restaurant, un distributeur automatique, etc.,
+                               à proximité de leur lieu de rendez-vous médical.
+                                Vous pouvez expliquer comment accéder à cette fonctionnalité et comment elle est utile.</p>
+            
+            <p><h2>Gestion des rendez-vous :</h2> Cette section détaille comment les utilisateurs peuvent consulter
+                 et gérer leurs rendez-vous passés et à venir. Expliquez comment ils peuvent annuler 
+                 ou modifier une réservation existante en cas de besoin. Offrez des instructions claires pour cette fonctionnalité essentielle.</p>
+            
+            <p><h2>Paiements en ligne :</h2> Ici, vous devez expliquer le processus de paiement 
+                en ligne pour les réservations. Mettez en évidence les options de paiement acceptées
+                 et décrivez les étapes de sécurité. Les utilisateurs doivent comprendre comment effectuer un paiement en toute confiance.</p>
+            
+            <p><h2>Avis et Évaluations :</h2> Cette partie informe les utilisateurs sur la manière 
+                de laisser des avis et des évaluations après avoir consulté un médecin. 
+                Expliquez comment ces avis sont utiles pour d'autres utilisateurs 
+                et comment ils peuvent contribuer à la qualité des services médicaux offerts.</p>
+                    </div>
+                    
+                    <div class="content" id="faq">
+                        <h2>FAQ</h2>
+                    
+                        <!-- Question 1 -->
+                        <div class="faq-item">
+                            <h3>Comment puis-je réserver un rendez-vous médical en ligne ?</h3>
+                            <p>Pour réserver un rendez-vous médical en ligne :</p>
+                            <ul>
+                                <li>Connectez-vous à votre compte utilisateur.</li>
+                                <li>Cliquez sur "Rechercher un médecin" pour trouver le médecin de votre choix.</li>
+                                <li>Sélectionnez la spécialité et la date souhaitée.</li>
+                                <li>Cliquez sur "Réserver" pour confirmer votre rendez-vous.</li>
+                            </ul>
+                            <p>Assurez-vous de remplir toutes les informations nécessaires pour finaliser la réservation.</p>
+                        </div>
+                    
+                        <!-- Question 2 -->
+                        <div class="faq-item">
+                            <h3>Puis-je réserver un rendez-vous pour quelqu'un d'autre ?</h3>
+                            <p>Oui, vous pouvez réserver un rendez-vous pour quelqu'un d'autre en utilisant son compte. Assurez-vous de sélectionner le nom du patient approprié lors de la réservation.</p>
+                        </div>
+                    
+                        <!-- Question 3 -->
+                        <div class="faq-item">
+                            <h3>Quels services supplémentaires sont disponibles ?</h3>
+                            <p>Vous pouvez rechercher divers services supplémentaires, tels que :</p>
+                            <ul>
+                                <li>Pharmacies à proximité</li>
+                                <li>Restaurants</li>
+                                <li>Guichets de retrait d'argent</li>
+                                <li>Autres services disponibles dans la région</li>
+                            </ul>
+                        </div>
+                    
+                        <!-- Question 4 -->
+                        <div class="faq-item">
+                            <h3>Puis-je annuler ou modifier un rendez-vous ?</h3>
+                            <p>Oui, vous pouvez annuler ou modifier un rendez-vous en accédant à votre tableau de bord. Trouvez le rendez-vous que vous souhaitez modifier et suivez les étapes appropriées pour annuler ou modifier la réservation.</p>
+                        </div>
+                    
+                        <!-- Question 5 -->
+                        <div class="faq-item">
+                            <h3>Comment fonctionne le paiement en ligne ?</h3>
+                            <p>Le paiement en ligne est sécurisé et facile. Lors de la réservation, vous serez redirigé vers notre passerelle de paiement. Vous pouvez utiliser diverses méthodes de paiement, telles que cartes de crédit, PayPal, etc. Suivez simplement les étapes pour effectuer votre paiement en toute sécurité.</p>
+                        </div>
+                    
+                        <!-- Question 6 -->
+                        <div class="faq-item">
+                            <h3>Comment puis-je laisser un avis sur un médecin ?</h3>
+                            <p>Pour laisser un avis sur un médecin :</p>
+                            <ul>
+                                <li>Connectez-vous à votre compte utilisateur.</li>
+                                <li>Accédez à votre historique de rendez-vous.</li>
+                                <li>Sélectionnez le rendez-vous que vous souhaitez évaluer.</li>
+                                <li>Laissez un avis et une évaluation sur votre expérience.</li>
+                            </ul>
+                        </div>
+                    
+                        <!-- Question 7 -->
+                        <div class="faq-item">
+                            <h3>Comment puis-je contacter le support client en cas de problème ?</h3>
+                            <p>Si vous avez des questions ou rencontrez des problèmes, vous pouvez contacter notre équipe de support client en utilisant notre page de contact. Remplissez le formulaire de contact et nous vous répondrons dans les plus brefs délais pour résoudre vos problèmes.</p>
+                        </div>
+                    </div>    
+          </div>
+        </div>
+    </section>
+   
+    <script>
+        // Fonction pour afficher le contenu correspondant à l'onglet sélectionné
+        function showContent(tabName) {
+            const contentElements = document.getElementsByClassName('content');
+            for (let i = 0; i < contentElements.length; i++) {
+                contentElements[i].style.display = 'none';
+            }
+            document.getElementById(tabName).style.display = 'block';
+        }
+    
+        // Afficher initialement le contenu des statistiques
+        showContent('statistiques');
+    
+        // Fonction pour mettre à jour le nombre d'utilisateurs
+        function updateNombreUtilisateurs() {
+            // Récupérer les données d'inscription depuis le stockage local
+            var utilisateurs = JSON.parse(localStorage.getItem("utilisateurs")) || [];
+    
+            // Filtrer les utilisateurs (peut nécessiter une meilleure logique)
+            const nombreUtilisateurs = utilisateurs.filter(user => user.type === 'utilisateur').length;
+    
+            // Afficher le nombre d'utilisateurs inscrits
+            document.getElementById('nombreUtilisateurs').textContent = nombreUtilisateurs;
+        }
+    
+        // JavaScript pour gérer la soumission du formulaire d'inscription
+        document.addEventListener('DOMContentLoaded', () => {
+            // Appelez la fonction pour mettre à jour le nombre d'utilisateurs
+            updateNombreUtilisateurs();
+        });
+
+
+        // Fonction pour mettre à jour le nombre prestataire 
+        function updatenombreprestataire() {
+            // Récupérer les données d'inscription depuis le stockage local
+            var utilisateurs = JSON.parse(localStorage.getItem("utilisateurs")) || [];
+    
+            // Filtrer les utilisateurs (peut nécessiter une meilleure logique)
+            const nombreprestataire = utilisateurs.filter(user => user.type === 'medecin').length;
+    
+            // Afficher le nombre d'utilisateurs inscrits
+            document.getElementById('prestataires').textContent = nombreprestataire;
+        }
+    
+        // JavaScript pour gérer la soumission du formulaire d'inscription
+        document.addEventListener('DOMContentLoaded', () => {
+            // Appelez la fonction pour mettre à jour le nombre d'utilisateurs
+            updatenombreprestataire();
+        });
+         
+
+    // Fonction pour mettre à jour le nombre prestataire 
+    function updatenombrresaervation() {
+           // Récupérer les réservations du stockage local
+            const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+
+            const nombrereservation = reservations.length;
+    
+            // Afficher le nombre d'utilisateurs inscrits
+            document.getElementById('reservations').textContent = nombrereservation;
+        }
+    
+        // JavaScript pour gérer la soumission du formulaire d'inscription
+        document.addEventListener('DOMContentLoaded', () => {
+            // Appelez la fonction pour mettre à jour le nombre d'utilisateurs
+            updatenombrresaervation();
+        });
+    </script>
+    
+    
+</body>
+</html>

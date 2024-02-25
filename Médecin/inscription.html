@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Inscription</title>
+	<link rel="stylesheet" type="text/css" href="inscription.css">
+</head>
+<body>
+  <center>
+	<fieldset style="width:30%;">
+		<form id="myForm" >
+			<h2>Inscrivez-vous ici !</h2>
+			<hr>
+			<table>
+				<tr>
+					<td>Nom : </td><td><input type="text" name="nom" value="" required><br><br></td>
+				</tr>
+				<tr>
+					<td>Prenom : </td><td><input type="text" name="prenom" required><br><br></td>
+				</tr>
+				<tr>
+					<td>Date de Naissance : </td><td><input type="text" name="date" placeholder="JJ/MM/AA"><br><br></td>
+				</tr>
+				<tr>
+					<td>N° téléphone : </td><td><input type="tel" name="tel"><br><br></td>
+				</tr>
+				<tr>
+					<td>Spécialité : </td><td><input type="text" name="specialite"required><br><br></td>
+				</tr>
+				<tr>
+					<td>Structure : </td><td><input type="text" name="structure"required><br><br></td>
+				</tr>
+				<tr>
+					<td>Horaires : </td><td><input type="text" name="horaire"><br><br></td>
+				</tr>
+				<tr>
+					<td>Email : </td><td><input type="email" name="email"><br><br></td>
+				</tr>
+				<tr>
+					<td>Mot Passe : </td><td><input type="password" id="pwd1" name="pwd1" required><br><br></td>
+				</tr>
+				<tr>
+					<td>Mot de passe <br> confirmation : </td><td><input type="password" id="pwd2" name="pwd2" required><br><br></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="button" name="inscription" id="inscription" value="S'inscrire"><br><br>
+					</td>
+				</tr>
+			</table>
+			<p>Vous avez un compte<a href="connexion.html">connecter ici</a>.</p>
+
+		</form>
+		
+	</fieldset>
+  </center>
+    <!-----------Script Javascript pour valider le formulaire ------------>
+
+  <script type="text/javascript" src="../administrateur/sauvegarde.js"></script>
+
+</body>
+</html>

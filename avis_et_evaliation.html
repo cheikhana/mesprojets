@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Commentaires et Évaluations</title>
+    <link rel="stylesheet" type="text/css" href="../Médecin/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+.review-form {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <section  class="en-tete">
+        <nav > 
+            <div class="nav-links " id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="./visiteur.html">Accueil</a></li>
+                    <li><a href="service.html">Recherche de Services </a></li>
+                    <li><a href="calendrier.html">Calendrier de Disponibilité</a></li>
+                    <li> <a href="reservation.html">Réservation</a></li>
+                    <li><a href="gestion_de_reservation.html">Gestion de Réservations </a></li>
+                    <li><a href="#">Paiements en Ligne </a></li>
+                    <li><a href="avis_et_evaliation.html">Avis et Évaluations  </a></li>
+                </ul>
+            </div>
+            
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box">
+            <div class="review-form">
+                <h1>Avis et Évaluations</h1>
+                <h2>Laissez un Avis</h2>
+                <form id="reviewForm">
+                    <label for="userName">Nom d'utilisateur :</label>
+                    <input type="text" id="userName" required>
+                    <label for="userRating">Évaluation (de 1 à 5) :</label>
+                    <input type="number" id="userRating" min="1" max="5" required>
+                    <label for="userReview">Votre Avis :</label>
+                    <textarea id="userReview" required></textarea>
+                    <button type="submit">Soumettre</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+
+    
+
+    <script >
+        document.addEventListener('DOMContentLoaded', function() {
+    const reviewForm = document.getElementById('reviewForm');
+
+    reviewForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const userName = document.getElementById('userName').value;
+        const userRating = document.getElementById('userRating').value;
+        const userReview = document.getElementById('userReview').value;
+
+        const review = {
+            userName: userName,
+            userRating: userRating,
+            userReview: userReview
+        };
+
+        // Récupérez les avis et évaluations existants du stockage local
+        const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+        // Ajoutez le nouveau commentaire à la liste des avis et évaluations
+        reviews.push(review);
+
+        // Enregistrez la liste mise à jour dans le stockage local
+        localStorage.setItem('reviews', JSON.stringify(reviews));
+
+        // Effacez les champs du formulaire après la soumission
+        document.getElementById('userName').value = '';
+        document.getElementById('userRating').value = '';
+        document.getElementById('userReview').value = '';
+
+        alert('Avis et évaluation soumis avec succès!');
+    });
+});
+
+    </script>
+</body>
+</html>

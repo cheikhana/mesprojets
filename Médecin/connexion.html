@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="inscription.css">
+</head>
+<body>
+    
+    <form>
+        <h1>Connexion</h1>
+        <hr/>
+        <div class="corps">
+            <span class="close"><ion-icon name="close"></ion-icon></span>
+            <div class="groupe">
+                <label for="email">Votre Adresse e-mail/Numéro de téléphone</label>
+                <input type="text">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            </div>
+            <div class="groupe">
+                <label for="mdp">Mot de Passe</label>
+                <input type="password" required/>
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            </div>
+        </div>
+        <p>Mot de passe <a href="#">oublié ?</a></p>
+        <div class="pied" align="center">
+            <button type="submit" >Connexion</button>
+        </div>
+        <p>Je n'ai pas de compte ? <a href="inscription.html">S'inscrire</a></p>
+    </form>
+
+	<script>
+        document.addEventListener("DOMContentLoaded", function () {
+    var formulaire = document.querySelector("form");
+    var utilisateurs = JSON.parse(localStorage.getItem("utilisateurs")) || [];
+
+    formulaire.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var email = document.querySelector('input[type="text"]').value;
+        var password = document.querySelector('input[type="password"]').value;
+
+        // Recherchez le médecin correspondant à l'e-mail entré
+        var medecin = utilisateurs.find(function (user) {
+            return user.email === email && user.type === "medecin";
+        });
+
+        if (medecin && medecin.pwd1 === password) {
+            // Redirigez l'utilisateur vers une page de succès ou effectuez une autre action
+
+            window.location.href = "index.html";
+        } else {
+            alert("Erreur de connexion. Veuillez vérifier vos informations.");
+        }
+    });
+});
+    </script>
+</body>
+</html>

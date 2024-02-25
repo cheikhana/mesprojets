@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gestion des disponibilités</title>
+    <link rel="stylesheet" type="text/css" href="styl.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section class="en-tete">
+            <nav>
+                <div class="nav-links " id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                    
+                     <!---- <li><a href="">Connexion</a></li> -->
+                        <li><a href="reservation.html">Gestion des Reservations</a></li>
+                        <li><a href="disponibilite.html">Gestion des Disponibilités</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                        <li><a href="statistique.html">Statistiques et Rapports</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>  
+    </section>
+<div class="container">
+    <label for="nom">Nom:</label>
+    <input type="text" name="nom" id="nom" required>
+    <label for="specialite" >Specialité:</label>
+    <input type="text" name="specialite" id="specialite" required>
+    <label for="service">Service:</label>
+    <input type="text" name="service" id="service">
+    <h3>Définir les Heures de Disponibilité pour Toute la Semaine</h3>
+    <label for="heure-debut">Heure de Début:</label>
+    <input type="heure" id="heure-debut">
+    <label for="heure-fin">Heure de Fin:</label>
+    <input type="heure" id="heure-fin">
+    <label for="debut-pause">Heure de Début de la Pause:</label>
+    <input type="heure" id="debut-pause">
+    <label for="fin-pause">Heure de Fin de la Pause:</label>
+    <input type="heure" id="fin-pause">
+    <button onclick="definirDisponibilite()">Définir Disponibilité</button>
+    <div id="disponibilite"></div>
+</div>
+<script type="text/javascript">
+    function definirDisponibilite() {
+    // Récupérer les valeurs saisies dans le formulaire
+    var nom = document.getElementById("nom").value;
+    var specialite = document.getElementById("specialite").value;
+    var service = document.getElementById("service").value;
+    var heureDebut = document.getElementById("heure-debut").value;
+    var heureFin = document.getElementById("heure-fin").value;
+    var debutPause = document.getElementById("debut-pause").value;
+    var finPause = document.getElementById("fin-pause").value;
+
+    // Créer un objet pour stocker les informations du médecin
+    var medecin = {
+        nom: nom,
+        specialite: specialite,
+        service: service,
+        heureDebut: heureDebut,
+        heureFin: heureFin,
+        debutPause: debutPause,
+        finPause: finPause
+    };
+
+    // Stocker l'objet médecin dans le local storage
+    // Si des médecins existent déjà dans le local storage, les récupérer et ajouter le nouveau médecin
+    var medecins = JSON.parse(localStorage.getItem("medecins")) || [];
+    medecins.push(medecin);
+    localStorage.setItem("medecins", JSON.stringify(medecins));
+
+    // Afficher les informations saisies dans le div avec l'id "disponibilite"
+    afficherDisponibilites();
+}
+
+function afficherDisponibilites() {
+    // Récupérer les médecins depuis le local storage
+    var medecins = JSON.parse(localStorage.getItem("medecins")) || [];
+
+    // Créer le HTML à afficher dans le div "disponibilite"
+    var html = "<h2>Liste des Médecins et Leurs Disponibilités</h2>";
+    medecins.forEach(function(medecin) {
+        html += "<h3>" + medecin.nom + "</h3>";
+        html += "<p>Spécialité: " + medecin.specialite + "</p>";
+        html += "<p>Service: " + medecin.service + "</p>";
+        html += "<p>Heure de Début: " + medecin.heureDebut + "</p>";
+        html += "<p>Heure de Fin: " + medecin.heureFin + "</p>";
+        html += "<p>Heure de Début de la Pause: " + medecin.debutPause + "</p>";
+        html += "<p>Heure de Fin de la Pause: " + medecin.finPause + "</p>";
+    });
+
+    // Afficher le HTML dans le div "disponibilite"
+    document.getElementById("disponibilite").innerHTML = html; }
+
+      /*JAVASCRIPT POUR LE MENU*/
+var navLinks = document.getElementById("navLinks");
+
+function showMenu()
+{
+    navLinks.style.left = "0";
+
+}
+function hideMenu()
+{
+    navLinks.style.left = "-200px" ;
+}
+
+
+</script>
+</body>
+</html>

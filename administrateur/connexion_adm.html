@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Page de Connexion</h1>
+        <form id="login-form">
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" required>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" required>
+            <button type="submit"><a href="Adm_accueil.html">Se Connecter</a></button>
+        </form>
+    </div>
+    <script>
+        // Sélectionnez les éléments du formulaire
+const loginForm = document.getElementById('login-form');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+
+// Gérez la soumission du formulaire
+loginForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Récupérez les informations d'identification de l'utilisateur
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    // Vérifiez les informations d'identification (remplacez par votre propre logique d'authentification)
+    if (verifierInformationsConnexion(username, password)) {
+        // Redirigez l'utilisateur vers la page d'administration (ou une autre page sécurisée)
+        window.location.href = 'page-d-administration.html';
+    } else {
+        alert('Nom d\'utilisateur ou mot de passe incorrect.');
+    }
+});
+
+// Fonction pour vérifier les informations d'identification (exemple)
+function verifierInformationsConnexion(username, password) {
+    // Vous devez implémenter votre propre logique d'authentification ici
+    // Cela pourrait impliquer une vérification avec une base de données ou un autre système d'authentification
+    // Dans cet exemple, nous supposons un nom d'utilisateur et un mot de passe prédéfinis
+    return username === 'admin' && password === 'motdepasse';
+}
+
+    </script>
+</body>
+</html>

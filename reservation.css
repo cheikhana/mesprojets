@@ -1,0 +1,89 @@
+/* Réinitialisation des styles par défaut pour éliminer les marges et les paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour l'en-tête */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Style pour le formulaire de réservation */
+#reservation-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+select, input, button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles pour les liens */
+a {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style pour le tableau de réservations */
+#reservations-table {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: none; /* Cachez le tableau au chargement de la page */
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Révélez le tableau une fois que des réservations sont affichées */
+#reservations-table.displayed {
+    display: table;
+}

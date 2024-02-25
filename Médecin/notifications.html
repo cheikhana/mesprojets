@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <section class="en-tete">
+        <nav>
+            <div class="nav-links " id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+            
+                 <!---- <li><a href="">Connexion</a></li> -->
+                    <li><a href="reservation.html">Gestion des Reservations</a></li>
+                    <li><a href="disponibilite.html">Gestion des Disponibilités</a></li>
+                    <li><a href="notifications.html">Notifications</a></li>
+                    <li><a href="statistique.html">Statistiques et Rapports</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>  
+        <div class="container">
+            <h1>Notifications</h1>
+            <div id="notifications-list"></div>
+        </div>
+</section>
+   
+    <script >
+        // Données de notifications (exemples)
+var notificationsData = [
+    { id: 1, message: "Nouvelle réservation reçue de Moussa ." },
+    { id: 2, message: "La réservation de Martin  a été annulée." },
+    { id: 3, message: "La réservation de Marie a été confirmée."},
+    { id: 4,message: "Nouvelle réservation reçue de Fatou ."},
+    // Ajoutez d'autres notifications au besoin
+];
+
+// Fonction pour afficher les notifications
+function afficherNotifications() {
+    var notificationsList = document.getElementById("notifications-list");
+    notificationsList.innerHTML = "";
+
+    notificationsData.forEach(function(notification) {
+        var notificationItem = document.createElement("div");
+        notificationItem.classList.add("notification-item");
+        notificationItem.innerHTML = `<strong>Notification #${notification.id}</strong><br>${notification.message}`;
+        notificationsList.appendChild(notificationItem);
+    });
+}
+
+// Appeler la fonction pour afficher les notifications lors du chargement de la page
+window.onload = afficherNotifications;
+        
+    </script>
+</body>
+
+</html>

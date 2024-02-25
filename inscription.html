@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Inscription Utilisateur</title>
+    <link rel="stylesheet" href="inscription.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <form>
+        <h1>Inscription Utilisateur</h1>
+        <hr/>
+        <div class="corps">
+            <span class="close"><ion-icon name="close"></ion-icon></span>
+            <div class="groupe">
+                <label for="prenom"> Prénom</label>
+                <input type="text" id="prenom"/>
+                <span class="icon"><ion-icon name="person"></ion-icon></span>
+                <label for="nom"> Nom</label>
+                <input type="text" id="nom" required/>
+                <span class="icon"><ion-icon name="person"></ion-icon></span>
+            </div>
+
+            <div class="groupe">
+                <label for="email"> Adresse e-mail</label>
+                <input type="email" id="email" autocomplete="@gmail.com" placeholder="mrr@gmail.com"/>
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            </div>
+            <div class="groupe">
+                <label for="numero"> Numero de téléphone</label>
+                <input type="tel" placeholder="770341234"/>
+                <span class="icon"><ion-icon name="call"></ion-icon></span>
+            </div>
+            <div class="groupe">
+                <label for="mdp">Mot de Passe</label>
+                <input type="password" name="mdp" required/>
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            </div>
+            <div class="groupe">
+                <label for="mdp">Confirmez le Mot de Passe</label>
+                <input type="password" name="mdp" required/>
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            </div>
+        </div>
+        <div class="pied" align="center">
+            <button type="button" onclick="sauvegarderUtilisateur()">S'inscrire</button>
+        </div>
+        
+        <div class="pied"><p>Vous avez déjà un compte ? <a href="connexion.html">Se connecter</a></p></div>
+    </form>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../administrateur/sauvegarde.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tableau de Bord des Statistiques</title>
+    <link rel="stylesheet" type="text/css" href="styl.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section class="en-tete">
+        <nav>
+            <div class="nav-links " id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                
+                 <!---- <li><a href="">Connexion</a></li> -->
+                    <li><a href="reservation.html">Gestion des Reservations</a></li>
+                    <li><a href="disponibilite.html">Gestion des Disponibilités</a></li>
+                    <li><a href="notifications.html">Notifications</a></li>
+                    <li><a href="statistique.html">Statistiques et Rapports</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>  
+        <div class="container">
+            <h1>Tableau de Bord des Statistiques</h1>
+    
+            <div id="reservations">
+                <h2>Réservations</h2>
+                <p>Total des réservations : <span id="totalReservations">0</span></p>
+            </div>
+        
+            <div id="occupation">
+                <h2>Taux d'Occupation</h2>
+                <p>Taux d'occupation actuel : <span id="occupancyRate">0%</span></p>
+            </div>
+        
+            <div id="evaluations">
+                <h2>Évaluations des Clients</h2>
+                <p>Moyenne des évaluations : <span id="averageRating">0</span></p>
+            </div>
+        
+        </div>
+</section>
+    
+    <script src="script5.js"></script>
+</body>
+</html>

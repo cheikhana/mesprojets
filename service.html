@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="../Médecin/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section  class="en-tete">
+        <nav >
+            <div class="nav-links " id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul >
+                    <li><a href="./visiteur.html">Accueil</a></li>
+                    <li><a href="service.html">Recherche de Services </a></li>
+                    <li><a href="calendrier.html">Calendrier de Disponibilité</a></li>
+                    <li> <a href="reservation.html">Réservation</a></li>
+                    <li><a href="gestion_de_reservation.html">Gestion de Réservations </a></li>
+                    <li><a href="#">Paiements en Ligne </a></li>
+                    <li><a href="avis_et_evaliation.html">Avis et Évaluations  </a></li>
+                </ul>
+            </div>
+            
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box">
+            <h1>Heures de Service</h1>
+            <ul id="service-hours"></ul>
+            <a href="calendar.html">Retour au calendrier</a>
+        </div>
+    </section>
+    
+
+    <script src="services.js"></script>
+</body>
+</html>

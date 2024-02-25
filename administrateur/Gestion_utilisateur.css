@@ -1,0 +1,50 @@
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style pour la table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    margin: 20px 0; /* Marge en haut et en bas de la table */
+}
+
+/* Style pour les en-têtes de colonnes */
+th {
+    background-color: #171616;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style pour les cellules du tableau */
+td {
+    border: 1px solid hsl(0, 4%, 95%);
+    padding: 8px;
+}
+
+/* Style pour les cellules de l'en-tête */
+th, td {
+    text-align: left;
+}
+
+/* Style pour le titre */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Style pour la liste des utilisateurs */
+#userList {
+    list-style: none;
+    padding: 0;
+}
+
+/* Style pour chaque élément de la liste des utilisateurs */
+#userList li {
+    border: 1px solid #932d2d;
+    margin: 10px 0; /* Marge en haut et en bas de chaque élément de la liste */
+    padding: 10px;
+}

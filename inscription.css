@@ -1,0 +1,113 @@
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'poppins', sans-serif;
+}
+
+body {
+    background: url('images/font5.jpg') no-repeat;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+form { 
+    position:relative;
+    background: transparent;
+    box-shadow:0 0 30px black;
+    padding: 20px 50px;
+    border-radius: 20px;
+    border: 3px solid #fff;
+    backdrop-filter: blur(10px);
+    width: auto;
+    justify-content: center;
+    align-items: center;
+}
+form h1{
+    font-size: 30px;
+    color: #fff;
+    font-size: bolder;
+    text-align: center;
+}
+form hr{
+    margin-top: 4px;
+    width: 100%;
+    height: 4px;
+    background-color :#fff;
+    border:none;
+}
+form .corps{
+    margin-bottom: 20px;
+}
+
+form .corps .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #fff ;
+    font-size: 2em;
+    color: #055369;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+form .corps .groupe{
+    margin-top: 10px;
+    margin-bottom:5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+form .corps .groupe label{
+    color: #fff;
+    font-size: 16px;   
+}
+form .corps .groupe input,select{
+    background: transparent;
+    border: none;
+    border-bottom:2px solid #fff;
+    margin: 1px;
+    padding: 7px 5px 8px 30px;
+    font-weight:bold;
+    outline: #055369;
+}
+form .corps .groupe .icon {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 5px;
+    font-size: 1.2em;
+    line-height: 57px;
+    color: #fff;
+}
+form p {
+    padding: auto;
+    margin-top: 6px;
+    color: #fff;
+
+}
+form p a {
+    color: #0EAABA ;
+}
+form .pied button{
+    background: transparent;
+    border-radius: 10px;
+    padding: 6px 30px;
+    color:#fff;
+    margin-top: 3px;
+    border:2px solid #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+form .pied button:hover{
+    transform: scale(1.05);
+}

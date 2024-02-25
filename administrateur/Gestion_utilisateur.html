@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Administration</title>
+    <link rel="stylesheet" href="./Gestion_utilisateur.css"> <!-- Assurez-vous d'ajouter votre propre fichier CSS -->
+    <link rel="stylesheet" href="../Médecin/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section  class="en-tete">
+        <nav class="barre-navigation">
+            <div class="nav-links " id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul><li><a href="../Accueil/Accueil.html">Accueil</a></li>
+                    <li><a href="./utilisateur.html">Tableau de Bord</a></li>
+                   <li><a href="./Gestion_utilisateur.html">Gestion des Utilisateurs</a></li>
+                   <li><a href="./commentaire.html">Gestion des Commentaires et Avis</a></li>
+                   <li><a href="./Gestion_contenu.html">Gestion des contenu</a></li>
+               </ul> 
+            </div>
+            <div class="text-box">
+                <div class="container">
+                    <h1>Page d'Administration</h1>
+                    <div class="user-info">
+                        <h2>Liste des Utilisateurs</h2>
+                        <table id="userTable">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Email</th>
+                                    <th>Actions</th> <!-- Ajoutez cette colonne pour les actions -->
+                                </tr>
+                            </thead>
+                            <tbody id="userList">
+                                <!-- Les données des utilisateurs seront affichées ici -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            
+                </div>
+        </section>
+            
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
+    
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    var userTable = document.getElementById("userTable");
+
+    // Récupérer les utilisateurs du stockage local
+    var utilisateurs = JSON.parse(localStorage.getItem("utilisateurs")) || [];
+
+    // Parcourir la liste des utilisateurs et afficher leurs informations
+    utilisateurs.forEach(function (utilisateur) {
+        if (utilisateur.type === "utilisateur" || utilisateur.type === "medecin") { // Vérifier le type
+            var tr = document.createElement("tr");
+            var c1 = document.createElement("td");
+            c1.textContent = utilisateur.prenom;
+            var c2 = document.createElement("td");
+            c2.textContent = utilisateur.nom;
+            var c3 = document.createElement("td");
+            c3.textContent = utilisateur.email;
+            var c4 = document.createElement("td");
+            var supprimerBtn = document.createElement("button");
+            supprimerBtn.textContent = "Supprimer";
+            supprimerBtn.addEventListener("click", function () {
+                // Appelez la fonction de suppression en passant l'email comme argument
+                supprimerUtilisateur(utilisateur.email);
+                // Supprimez la ligne de la table
+                tr.remove();
+            });
+            c4.appendChild(supprimerBtn);
+
+            tr.appendChild(c1);
+            tr.appendChild(c2);
+            tr.appendChild(c3);
+            tr.appendChild(c4);
+            userTable.querySelector("tbody").appendChild(tr);
+        }
+    });
+});
+
+        // Fonction pour supprimer un utilisateur
+        function supprimerUtilisateur(emailASupprimer) {
+            var utilisateurs = JSON.parse(localStorage.getItem("utilisateurs")) || [];
+            var utilisateurSupprime = null;
+
+            // Recherchez l'utilisateur à supprimer dans la liste des utilisateurs
+            for (var i = 0; i < utilisateurs.length; i++) {
+                if (utilisateurs[i].email === emailASupprimer) {
+                    utilisateurSupprime = utilisateurs[i];
+                    utilisateurs.splice(i, 1); // Supprimez l'utilisateur du tableau
+                    break; // Sortez de la boucle
+                }
+            }
+
+            if (utilisateurSupprime) {
+                // Mettez à jour les données dans le stockage local
+                alert("Utilisateur supprimé.");
+                localStorage.setItem('utilisateurs', JSON.stringify(utilisateurs));
+            } else {
+                alert("Utilisateur non trouvé.");
+            }
+        }
+    </script>
+</body>
+</html>

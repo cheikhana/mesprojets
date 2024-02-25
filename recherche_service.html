@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de Services</title>
+    <link rel="stylesheet" type="text/css" href="../Médecin/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Ajoutez votre CSS pour la mise en page ici */
+    </style>
+</head>
+<body>
+    <section  class="en-tete">
+        <nav >  
+            <div class="nav-links " id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="../Accueil/Accueil.html">Accueil</a></li>
+                    <li><a href="./recherche_service.html">Recherche de Services </a></li>
+                    <li><a href="calendrier.html">Calendrier de Disponibilité</a></li>
+                    <li> <a href="reservation.html">Réservation</a></li>
+                    <li><a href="gestion_de_reservation.html">Gestion de Réservations </a></li>
+                    <li><a href="#">Paiements en Ligne </a></li>
+                    <li><a href="avis_et_evaliation.html">Avis et Évaluations  </a></li>
+                </ul>
+            </div>
+            
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box">
+            <h1>Recherche de Services</h1>
+
+            <!-- Sélectionnez une catégorie de service -->
+            <label for="categorie">Catégorie de Service :</label>
+            <select id="categorie">
+                <option value="hopital">À l'hôpital</option>
+                <option value="proximite">À proximité</option>
+            </select>
+        
+            <!-- Sélectionnez un service en fonction de la catégorie -->
+            <label for="service">Service :</label>
+            <select id="service">
+                <!-- Les options sont générées dynamiquement en JavaScript en fonction de la catégorie sélectionnée -->
+            </select>
+        
+            <button id="rechercher">Rechercher</button>
+        
+            <h2>Résultats de la Recherche :</h2>
+            <ul id="resultats">
+                <!-- Les résultats de la recherche seront affichés ici -->
+            </ul>
+        
+        </div>
+    </section>
+
+    
+    <script>
+        // Données de services en fonction des catégories (cet exemple est simplifié)
+        const services = {
+            hopital: ["Service d'Urgence", "Chirurgie", "Soins Infirmiers", "Radiologie", "Laboratoire", "Maternité", "Pédiatrie", "Cardiologie"],
+            proximite: ["Pharmacie", "Supermarchés", "Transports en Commun" ,"Orange Money","Wave"]
+        };
+
+        const categorieSelect = document.getElementById('categorie');
+        const serviceSelect = document.getElementById('service');
+        const rechercherBouton = document.getElementById('rechercher');
+        const resultatsListe = document.getElementById('resultats');
+
+        // Écouteur d'événements pour la sélection de catégorie
+        categorieSelect.addEventListener('change', () => {
+            const categorie = categorieSelect.value;
+            // Générer les options de service en fonction de la catégorie sélectionnée
+            genererOptionsDeService(categorie);
+        });
+
+        // Fonction pour générer les options de service en fonction de la catégorie sélectionnée
+        function genererOptionsDeService(categorie) {
+            serviceSelect.innerHTML = ''; // Efface les options précédentes
+            services[categorie].forEach((service) => {
+                const option = document.createElement('option');
+                option.value = service;
+                option.textContent = service;
+                serviceSelect.appendChild(option);
+            });
+        }
+
+        // Écouteur d'événements pour le bouton de recherche
+        rechercherBouton.addEventListener('click', () => {
+            const categorie = categorieSelect.value;
+            const service = serviceSelect.value;
+            // Vous pouvez maintenant traiter la recherche en fonction de la catégorie et du service sélectionnés
+            // Dans cet exemple, nous affichons simplement le résultat dans la liste des résultats
+            const resultat = `Catégorie : ${categorie}, Service : ${service}`;
+            const listItem = document.createElement('li');
+            listItem.textContent = resultat;
+            resultatsListe.appendChild(listItem);
+        });
+
+        // Générer les options de service initiales
+        genererOptionsDeService(categorieSelect.value);
+    </script>
+</body>
+</html>
